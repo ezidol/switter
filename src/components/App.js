@@ -1,10 +1,21 @@
-
+import React, { useState } from "react";
+import AppRouter from "components/Router";
+import { authService } from "fbase";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+
   return (
-    <div>
-    </div>
+    <>
+      <AppRouter isLoggedIn={isLoggedIn} />
+      <footer>&copy; switter {new Date().getFullYear()}</footer>
+    </>
   );
+    
+
+
+    
+  
 }
 
 export default App;
